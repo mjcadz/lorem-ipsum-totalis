@@ -1,0 +1,16 @@
+{
+  "name": "config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "tailwind/config.json",
+    "tailwind/styles.scss",
+    "tsconfig/vue-vite.json"
+  ],
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.3"
+  }
+}

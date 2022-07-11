@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/vue-vite.json",
+  "extends": "config/tsconfig/vue-vite.json",
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
