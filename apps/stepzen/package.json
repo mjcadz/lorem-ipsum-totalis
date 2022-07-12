@@ -1,0 +1,8 @@
+{
+  "name": "stepzen",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "stepzen start"
+  }
+}

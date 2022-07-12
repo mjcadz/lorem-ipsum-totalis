@@ -1,0 +1,35 @@
+type Word {
+  score: Int
+  tags: [String]
+  word: String
+}
+
+type Query {
+  means(seed: String!, num: Int!): [Word]
+    @rest(endpoint: "https://api.datamuse.com/words?ml=$seed&max=$num")
+}
+
+type Query {
+  rhymes(seed: String!, num: Int!): [Word]
+    @rest(endpoint: "https://api.datamuse.com/words?rel_rhy=$seed&max=$num")
+}
+
+type Query {
+  approxRhymes(seed: String!, num: Int!): [Word]
+    @rest(endpoint: "https://api.datamuse.com/words?rel_nry=$seed&max=$num")
+}
+
+type Query {
+  describes(seed: String!, num: Int!): [Word]
+    @rest(endpoint: "https://api.datamuse.com/words?rel_jjb=$seed&max=$num")
+}
+
+type Query {
+  synonyms(seed: String!, num: Int!): [Word]
+    @rest(endpoint: "https://api.datamuse.com/words?rel_syn=$seed&max=$num")
+}
+
+type Query {
+  triggers(seed: String!, num: Int!): [Word]
+    @rest(endpoint: "https://api.datamuse.com/words?rel_trg=$seed&max=$num")
+}
