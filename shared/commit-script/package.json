@@ -1,0 +1,15 @@
+{
+  "name": "commit-script",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./bin/index.js",
+  "bin": {
+    "commit-script": "./bin/index.js"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "inquirer": "^8.2.4",
+    "shelljs": "^0.8.5"
+  }
+}

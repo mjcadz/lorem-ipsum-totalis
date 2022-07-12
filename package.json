@@ -7,12 +7,16 @@
     "shared/*"
   ],
   "scripts": {
+    "commit": "./node_modules/commit-script/bin/index.js",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{vue,ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{vue,js,ts,jsx,tsx,md,json,scss,sass}\"",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "prettier": "latest",
     "prettier-plugin-tailwindcss": "^0.1.12",
     "turbo": "latest"
@@ -22,5 +26,9 @@
     "node": ">=14.0.0"
   },
   "dependencies": {},
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.19",
+  "lint-staged": {
+    "apps/**/*.{ts,vue}": "eslint --fix",
+    "*.{vue,js,ts,jsx,tsx,md,json,scss,sass}": "prettier --write"
+  }
 }
