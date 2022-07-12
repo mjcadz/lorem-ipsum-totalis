@@ -10,6 +10,7 @@
     "commit": "./node_modules/commit-script/bin/index.js",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "test": "turbo run test --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{vue,js,ts,jsx,tsx,md,json,scss,sass}\"",
     "prepare": "husky install"
@@ -28,7 +29,8 @@
   "dependencies": {},
   "packageManager": "yarn@1.22.19",
   "lint-staged": {
-    "apps/**/*.{ts,vue}": "eslint --fix",
+    "apps/frontend/**/*.{ts,vue}": "eslint --fix",
+    "shared/ui/**/*.{ts,vue}": "eslint --fix",
     "*.{vue,js,ts,jsx,tsx,md,json,scss,sass}": "prettier --write"
   }
 }

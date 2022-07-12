@@ -1,0 +1,43 @@
+{
+  "name": "ui",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint --ext .ts,.vue ."
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/ui.umd.js",
+  "module": "./dist/ui.es.js",
+  "typings": "./dist_types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/ui.es.js",
+      "require": "./dist/ui.umd.js"
+    }
+  },
+  "dependencies": {
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.38",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/test-utils": "^2.0.0",
+    "autoprefixer": "^10.4.7",
+    "config": "*",
+    "eslint": "^8.19.0",
+    "eslint-config-vue": "*",
+    "happy-dom": "^5.0.0",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vitest": "^0.13.1",
+    "vue-tsc": "^0.34.7"
+  }
+}

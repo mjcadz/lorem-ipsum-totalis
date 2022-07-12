@@ -1,0 +1,8 @@
+{
+  "extends": "config/tsconfig/vue-vite.json",
+  "compilerOptions": {
+    "outDir": "dist_types"
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules"]
+}
