@@ -1,14 +1,14 @@
 type Query {
-  randomNoun: String!
+  randomNoun: JSON
     @rest(endpoint: "https://random-word-form.herokuapp.com/random/noun")
 }
 
 type Query {
-  randomAdjective: String!
+  randomAdjective: JSON
     @rest(endpoint: "https://random-word-form.herokuapp.com/random/adjective")
 }
 
 type Query {
-  randomAnimal: String!
+  randomAnimal: JSON
     @rest(endpoint: "https://random-word-form.herokuapp.com/random/animal")
 }
