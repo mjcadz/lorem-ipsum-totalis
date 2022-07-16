@@ -28,7 +28,7 @@
     <ListboxLabel class="sr-only"> Listbox </ListboxLabel>
     <div class="relative">
       <ListboxButton
-        class="relative h-12 w-full cursor-default rounded-md bg-blue-500 py-2 pl-3 pr-10 text-left text-white shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-lg"
+        class="relative h-12 w-full cursor-default rounded-md bg-blue-500 py-2 pl-3 pr-10 text-left text-white shadow-sm focus:outline-none focus:ring focus:ring-blue-600 sm:text-lg"
       >
         <span class="block truncate">{{ selected.name }}</span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">

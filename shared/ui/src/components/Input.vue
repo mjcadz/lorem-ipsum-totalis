@@ -27,7 +27,7 @@
         v-model="input"
         type="text"
         :name="uid"
-        class="block h-12 w-full rounded-md border-none bg-blue-200 text-lg text-blue-800 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+        class="block h-12 w-full rounded-md border-none bg-blue-200 text-lg text-blue-800 shadow-sm focus:outline-none focus:ring focus:ring-blue-600"
         :placeholder="placeholder"
       />
     </div>
