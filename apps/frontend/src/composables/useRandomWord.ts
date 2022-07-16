@@ -2,14 +2,17 @@ import { computed } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 import { randomAdjective, randomAnimal, randomNoun } from '@/graphql/queries'
 
-export const useRandomAdjective = () => {
-  const { result, loading, refetch, onError } = useQuery(randomAdjective)
+export const useRandomNoun = () => {
+  const { result, loading, refetch, onError, onResult } = useQuery(randomNoun)
 
-  const adjective = computed(() => result.value.randomAdjective[0])
+  const noun = computed(() => {
+    if (!result.value) return ''
+    return result.value.randomNoun[0]
+  })
 
   onError((e) => {
     console.log(JSON.stringify(e, null, 2))
   })
 
-  return { adjective, loading, refetch }
+  return { noun, loading, refetch, onResult }
 }

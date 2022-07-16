@@ -45,6 +45,16 @@
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.1.tgz#076d78ce99822258cf813ecc1e7fa460fa74d052"
   integrity sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==
 
+"@headlessui/vue@^1.6.7":
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.6.7.tgz#433b86e5f86203606e7ac4851777173a327dd8c4"
+  integrity sha512-5sTCBpkUoFE7zhANn/6Z+pf3PUA7MD6BBaTsJcQybq9E4fnNiMM9agOJI9meXbtcawE6Dm8EeB5A8HAJEnZCbQ==
+
+"@heroicons/vue@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@heroicons/vue/-/vue-1.0.6.tgz#d8b90734b436eb5a87f40cc300b64a0fb0031f7f"
+  integrity sha512-ng2YcCQrdoQWEFpw+ipFl2rZo8mZ56v0T5+MyfQQvNqfKChwgP6DMloZLW+rl17GEcHkE3H82UTAMKBKZr4+WA==
+
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.5.tgz#2cbaf9a89460da24b5ca6531b8bbfc23e1df50c7"
@@ -161,6 +171,11 @@
   version "6.9.7"
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
   integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
+
+"@types/web-bluetooth@^0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.14.tgz#94e175b53623384bff1f354cdb3197a8d63cdbe5"
+  integrity sha512-5d2RhCard1nQUC3aHcq/gHzWYO6K0WJmAbjO7mQJgCQKtZpgXxv1rOM6O/dBDhDYYVutk1sciOgNSe+5YyfM8A==
 
 "@typescript-eslint/eslint-plugin@^5.0.0":
   version "5.30.6"
@@ -401,6 +416,28 @@
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.2.tgz#0b5edd683366153d5bc5a91edc62f292118710eb"
   integrity sha512-E2P4oXSaWDqTZNbmKZFVLrNN/siVN78YkEqs7pHryWerrlZR9bBFLWdJwRoguX45Ru6HxIflzKl4vQvwRMwm5g==
+
+"@vueuse/core@^8.9.3":
+  version "8.9.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-8.9.3.tgz#209ca814a6bd4cbc45c799069efc8cd140e407f0"
+  integrity sha512-q2pr3N7FPG7IBBhEXTYOJU+38VwKMLP5IfD33byzBV4Th7f1JHT4qPKvJrvr17knAefPRzNqgt9et+xFqaRlPQ==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.14"
+    "@vueuse/metadata" "8.9.3"
+    "@vueuse/shared" "8.9.3"
+    vue-demi "*"
+
+"@vueuse/metadata@8.9.3":
+  version "8.9.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-8.9.3.tgz#5370d787d324bba111a642b016225c8d0a59fcf9"
+  integrity sha512-57gZZKtWAmcJaUBmciCohvmumVLz4+FnoVnWj7U5BWs5PC2/7gU9Z0/i1i9leDNeboAauFzAq7z1GjS8eYnT+w==
+
+"@vueuse/shared@8.9.3":
+  version "8.9.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-8.9.3.tgz#5083ccf6a1f87a4a7a87410c180d6576a3aa4446"
+  integrity sha512-foorYQAU3CGknAO1w9No/rpGBJmb7L74MPltnZAYxeBRfhsajjJYYgja+D5IT2vT+/a0NciISaVp3fDwMN1ocA==
+  dependencies:
+    vue-demi "*"
 
 "@wry/context@^0.6.0":
   version "0.6.1"
@@ -2791,7 +2828,7 @@ vitest@^0.13.1:
     tinyspy "^0.3.2"
     vite "^2.9.9"
 
-vue-demi@^0.13.1:
+vue-demi@*, vue-demi@^0.13.1:
   version "0.13.4"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.4.tgz#fcb320892d78d3a7ec227024776f77d9a5c4831d"
   integrity sha512-KP4lq9uSz0KZbaqCllRhnxMV3mYRsRWJfdsAhZyt5bV5O1RTpoeDptBRV9NOa/JgOpfaA9ane88VF7OjWNK/DA==

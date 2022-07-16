@@ -13,7 +13,7 @@ type Options = {
 
 type TextOptions = {
   number: number
-  type: 'words' | 'sentences' | 'paragraphs'
+  type: number | 'Words' | 'Sentences' | 'Paragraphs'
 }
 
 type Word = {
@@ -39,8 +39,8 @@ export const useWords = () => {
   })
 
   const textOptions: TextOptions = reactive({
-    number: 3,
-    type: 'sentences',
+    number: 2,
+    type: 'Paragraphs',
   })
 
   const { result, loading, refetch, onError } = useQuery(wordsBySeed, variables, options)
@@ -58,28 +58,31 @@ export const useWords = () => {
 
   const placeholderText = computed(() => {
     if (words.value.length === 0) return ''
-    let shuffledWords = words.value.sort(() => Math.random() - 0.5)
+    let shuffledWords = [...words.value.sort(() => Math.random() - 0.5)]
     const type = textOptions.type
     const number = textOptions.number
     let placeholderText = ''
 
     // paragraphs
-    const numParagraphs = type === 'paragraphs' ? number : 1
+    const numParagraphs = type === 'Paragraphs' ? number : 1
     for (let i = 0; i < numParagraphs; i++) {
       if (i !== 0) placeholderText += '\n\n'
 
       // sentences
-      const numSentences = type === 'sentences' ? number : type === 'words' ? 1 : randomNum(3, 5)
+      const numSentences = type === 'Sentences' ? number : type === 'Words' ? 1 : randomNum(3, 5)
       for (let j = 0; j < numSentences; j++) {
         if (j !== 0) placeholderText += ' '
 
         // words
-        const numWords = type === 'words' ? number : randomNum(10, 15)
+        const numWords = type === 'Words' ? number : randomNum(10, 15)
         for (let k = 0; k < numWords; k++) {
           if (shuffledWords.length === 0) {
-            shuffledWords = words.value.sort(() => Math.random() - 0.5)
+            console.log('triggered')
+            shuffledWords = [...words.value.sort(() => Math.random() - 0.5)]
+            console.log(shuffledWords)
           }
           if (k === 0) {
+            // console.log(shuffledWords)
             placeholderText += capitalise(shuffledWords.pop() as string)
           } else {
             placeholderText += ' '
