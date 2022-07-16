@@ -57,9 +57,9 @@
   <div class="h-full">
     <div class="flex h-screen w-screen flex-col items-center justify-center bg-blue-200 p-4 pt-2">
       <h1 class="font-dosis text-center text-7xl font-bold">
-        Lorem Ipsum <span class="animate-pulse italic text-blue-600">TOTALIS</span>
+        Lorem Ipsum <span class="animate-pulse text-blue-600">TOTALIS</span>
       </h1>
-      <p class="mt-6 text-center text-xl">Generate themed placeholder text from any word or phrase.</p>
+      <p class="mt-6 mb-28 text-center text-xl sm:mb-0">Generate themed placeholder text from any word or phrase.</p>
       <ChevronDoubleDownIcon
         class="absolute bottom-5 h-12 w-12 animate-bounce cursor-pointer text-blue-500"
         aria-hidden="true"
@@ -77,13 +77,12 @@
         </div>
         <div class="flex w-full flex-col space-y-2 rounded-xl bg-white p-3 shadow-xl sm:hidden">
           <div class="flex space-x-2">
-            <uiButton uid="generate-button" @click="generate"> Generate </uiButton>
             <uiListbox v-model:selected="selectedTextNumber" uid="number-select" :list="textNumbers" class="w-24" />
             <uiListbox v-model:selected="selectedTextType" uid="type-select" :list="textTypes" class="flex-1" />
           </div>
           <div class="flex space-x-2">
-            <div class="flex h-12 items-center rounded-md pl-4 pr-4 text-lg italic text-blue-800">About</div>
             <uiInput v-model:input="seedWord" class="flex-1" uid="seed-input" :placeholder="placeholder" />
+            <uiButton uid="generate-button" @click="generate"> Generate </uiButton>
           </div>
         </div>
         <div class="flex-1 rounded-xl bg-white p-3 text-blue-800 shadow-xl">
