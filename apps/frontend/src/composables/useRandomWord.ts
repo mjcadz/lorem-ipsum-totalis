@@ -10,9 +10,9 @@ export const useRandomNoun = () => {
     return result.value.randomNoun[0]
   })
 
-  onError((e) => {
-    console.log(JSON.stringify(e, null, 2))
-  })
+  // onError((e) => {
+  //   console.log(JSON.stringify(e, null, 2))
+  // })
 
   return { noun, loading, refetch, onResult }
 }

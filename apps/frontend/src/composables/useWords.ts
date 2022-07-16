@@ -77,12 +77,9 @@ export const useWords = () => {
         const numWords = type === 'Words' ? number : randomNum(10, 15)
         for (let k = 0; k < numWords; k++) {
           if (shuffledWords.length === 0) {
-            console.log('triggered')
             shuffledWords = [...words.value.sort(() => Math.random() - 0.5)]
-            console.log(shuffledWords)
           }
           if (k === 0) {
-            // console.log(shuffledWords)
             placeholderText += capitalise(shuffledWords.pop() as string)
           } else {
             placeholderText += ' '
