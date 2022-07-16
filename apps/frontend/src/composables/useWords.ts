@@ -69,7 +69,7 @@ export const useWords = () => {
       if (i !== 0) placeholderText += '\n\n'
 
       // sentences
-      const numSentences = type === 'Sentences' ? number : type === 'Words' ? 1 : randomNum(3, 5)
+      const numSentences = type === 'Sentences' ? number : type === 'Words' ? 1 : randomNum(4, 5)
       for (let j = 0; j < numSentences; j++) {
         if (j !== 0) placeholderText += ' '
 
