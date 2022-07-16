@@ -2,15 +2,16 @@
   import { ref, computed } from 'vue'
   import { useRandomNoun } from '@/composables/useRandomWord'
   import { useWords } from '@/composables/useWords'
-  import { uiButton, uiInput, uiListbox } from 'ui'
+  import { ChevronDoubleDownIcon } from '@heroicons/vue/solid'
+  import { uiButton, uiInput, uiListbox, uiSpinner } from 'ui'
 
   type ListItem = {
     id: number
     name: number | 'Words' | 'Sentences' | 'Paragraphs'
   }
 
-  const { noun, onResult } = useRandomNoun()
-  const { textOptions, placeholderText, setSeedWord } = useWords()
+  const { noun, onResult, loading: randomLoading } = useRandomNoun()
+  const { textOptions, placeholderText, setSeedWord, loading: wordsLoading } = useWords()
   const placeholder = computed(() => `e.g. ${noun.value}...`)
   const seedWord = ref('')
 
@@ -53,27 +54,33 @@
 </script>
 
 <template>
-  <div class="h-screen">
-    <div class="flex h-screen w-screen snap-start items-center justify-center bg-blue-200 p-4 pt-2">
-      <div class="flex flex-col items-center space-y-8">
-        <h1 class="text-7xl font-medium">Lorem Ipsum <span class="italic text-blue-600">Totalis</span></h1>
-        <button class="" @click="scrollToElement('#scrollHere')">down</button>
-      </div>
+  <div class="h-full">
+    <div class="flex h-screen w-screen flex-col items-center justify-center bg-blue-200 p-4 pt-2">
+      <h1 class="font-dosis text-7xl font-bold">
+        Lorem Ipsum <span class="animate-pulse italic text-blue-600">TOTALIS</span>
+      </h1>
+      <p class="mt-6 text-xl">Generate themed placeholder text from any word or phrase.</p>
+      <ChevronDoubleDownIcon
+        class="absolute bottom-5 h-12 w-12 animate-bounce cursor-pointer text-blue-500"
+        aria-hidden="true"
+        @click="scrollToElement('#scrollHere')"
+      />
     </div>
     <div id="scrollHere" class="flex min-h-screen w-full items-center justify-center bg-blue-50 p-4 pt-2">
-      <div class="mx-auto flex max-w-3xl items-center">
-        <div class="space-y-6">
-          <div class="flex w-full space-x-2 rounded-xl bg-white p-3 shadow-xl">
-            <uiListbox v-model:selected="selectedTextNumber" uid="number-select" :list="textNumbers" class="w-20" />
-            <uiListbox v-model:selected="selectedTextType" uid="type-select" :list="textTypes" class="w-40" />
-            <div class="flex h-12 items-center rounded-md px-1 text-lg italic text-blue-800">About</div>
-            <uiInput v-model:input="seedWord" class="flex-1" uid="seed-input" :placeholder="placeholder" />
-            <uiButton uid="generate-button" @click="generate"> Generate </uiButton>
+      <div class="mx-auto my-12 h-full w-full max-w-3xl flex-col items-center space-y-6">
+        <div class="flex w-full space-x-2 rounded-xl bg-white p-3 shadow-xl">
+          <uiListbox v-model:selected="selectedTextNumber" uid="number-select" :list="textNumbers" class="w-20" />
+          <uiListbox v-model:selected="selectedTextType" uid="type-select" :list="textTypes" class="w-40" />
+          <div class="flex h-12 items-center rounded-md px-1 text-lg italic text-blue-800">About</div>
+          <uiInput v-model:input="seedWord" class="flex-1" uid="seed-input" :placeholder="placeholder" />
+          <uiButton uid="generate-button" @click="generate"> Generate </uiButton>
+        </div>
+        <div class="flex-1 rounded-xl bg-white p-3 text-blue-800 shadow-xl">
+          <div v-if="wordsLoading || randomLoading" class="flex h-48 items-center justify-center bg-blue-200 p-6">
+            <uiSpinner class="h-8 w-8 fill-blue-800 text-blue-500" />
           </div>
-          <div class="rounded-xl bg-white p-3 text-blue-800 shadow-xl">
-            <div class="whitespace-pre-line rounded-md bg-blue-200 p-6 text-lg">
-              {{ placeholderText }}
-            </div>
+          <div v-else class="whitespace-pre-line rounded-md bg-blue-200 p-6 text-lg">
+            {{ placeholderText }}
           </div>
         </div>
       </div>

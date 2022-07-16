@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        dosis: ['Dosis', ...defaultTheme.fontFamily.sans],
       },
     },
   },
