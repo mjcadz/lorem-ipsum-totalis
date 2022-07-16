@@ -68,9 +68,7 @@ inquirer
       type: 'list',
       name: 'type',
       message: 'Commit type:',
-      choices: conventionalEmojiTypes.map(
-        (type) => `${type.emoji} ${type.name}`
-      ),
+      choices: conventionalEmojiTypes.map((type) => `${type.emoji} ${type.name}`),
     },
     {
       type: 'input',
@@ -84,9 +82,7 @@ inquirer
     },
   ])
   .then((answers) => {
-    const emojiType = conventionalEmojiTypes.find(
-      (x) => (x.name = answers.type.split(' ')[1])
-    )
+    const emojiType = conventionalEmojiTypes.find((x) => (x.name = answers.type.split(' ')[1]))
     const conventionalCommit = `${emojiType.code} ${emojiType.name}(${answers.scope}): ${answers.description}`
     console.log(chalk.magenta(`\n${conventionalCommit}\n`))
 

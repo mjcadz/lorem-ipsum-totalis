@@ -21,8 +21,7 @@ type Word = {
   word: string
 }
 
-const randomNum = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min)) + min
+const randomNum = (min: number, max: number) => Math.floor(Math.random() * (max - min)) + min
 
 function capitalise(word: string) {
   const lower = word.toLowerCase()
@@ -44,11 +43,7 @@ export const useWords = () => {
     type: 'sentences',
   })
 
-  const { result, loading, refetch, onError } = useQuery(
-    wordsBySeed,
-    variables,
-    options
-  )
+  const { result, loading, refetch, onError } = useQuery(wordsBySeed, variables, options)
 
   const words = computed(() => {
     if (!result.value) return []
@@ -57,6 +52,7 @@ export const useWords = () => {
     words.push(...result.value.means.map((x: Word) => x.word))
     words.push(...result.value.synonyms.map((x: Word) => x.word))
     words.push(...result.value.triggers.map((x: Word) => x.word))
+    // remove duplicates
     return [...new Set(words)]
   })
 
@@ -71,11 +67,12 @@ export const useWords = () => {
     const numParagraphs = type === 'paragraphs' ? number : 1
     for (let i = 0; i < numParagraphs; i++) {
       if (i !== 0) placeholderText += '\n\n'
+
       // sentences
-      const numSentences =
-        type === 'sentences' ? number : type === 'words' ? 1 : randomNum(3, 5)
+      const numSentences = type === 'sentences' ? number : type === 'words' ? 1 : randomNum(3, 5)
       for (let j = 0; j < numSentences; j++) {
         if (j !== 0) placeholderText += ' '
+
         // words
         const numWords = type === 'words' ? number : randomNum(10, 15)
         for (let k = 0; k < numWords; k++) {
@@ -105,5 +102,13 @@ export const useWords = () => {
     options.enabled = true
   }
 
-  return { setSeedWord, words, placeholderText, result, loading, refetch }
+  return {
+    setSeedWord,
+    words,
+    placeholderText,
+    textOptions,
+    result,
+    loading,
+    refetch,
+  }
 }

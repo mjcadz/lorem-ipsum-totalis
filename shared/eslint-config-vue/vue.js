@@ -6,23 +6,11 @@ module.exports = {
     node: true,
     'vue/setup-compiler-macros': true,
   },
-  extends: [
-    'plugin:vue/vue3-recommended',
-    'eslint:recommended',
-    '@vue/typescript/recommended',
-    '@vue/prettier',
-  ],
+  extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', '@vue/typescript/recommended', '@vue/prettier'],
   parserOptions: {
     ecmaVersion: 2021,
   },
   plugins: [],
-  ignorePatterns: [
-    'node_modules',
-    'public',
-    'coverage',
-    'dist',
-    'dist_types',
-    '.turbo',
-  ],
+  ignorePatterns: ['node_modules', 'public', 'coverage', 'dist', 'dist_types', '.turbo'],
   rules: {},
 }
