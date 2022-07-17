@@ -2,6 +2,8 @@
 
 Generate themed placeholder text from any word or phrase.
 
+[Demo](https://lorem-ipsum-totalis.onrender.com/)
+
 ![Screenshot](images/screenshot.png)
 
 ## Features
